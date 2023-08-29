@@ -19,7 +19,13 @@ class AviaSalesTest {
         aviaSales.add(ticket4);
         aviaSales.add(ticket5);
     }
+    @Test
+    void shouldFindAll() {
+        Ticket[] expected = new Ticket[]{ticket1, ticket2, ticket3, ticket4, ticket5};
+        Ticket[] actual = aviaSales.findAll();
 
+        Assertions.assertArrayEquals(expected, actual);
+    }
     @Test
     void shouldSearch() {
         Ticket[] expected = new Ticket[]{ticket4, ticket2, ticket5};    //ASC-сортировка по цене билета
@@ -27,7 +33,6 @@ class AviaSalesTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
-
     @Test
     void shouldSearchAndSortBy() {
         Ticket[] expected = new Ticket[]{ticket5, ticket2, ticket4};    //ASC-сортировка по времени перелёта
@@ -35,4 +40,5 @@ class AviaSalesTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
+
 }
